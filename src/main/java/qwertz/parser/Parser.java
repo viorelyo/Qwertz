@@ -1,9 +1,6 @@
 package qwertz.parser;
 
-import qwertz.ast.BinaryExpression;
-import qwertz.ast.Expression;
-import qwertz.ast.NumberExpression;
-import qwertz.ast.UnaryExpression;
+import qwertz.ast.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -82,6 +79,9 @@ public class Parser {
         final Token current = get(0);
         if (match(TokenType.NUMBER)) {
             return new NumberExpression(Double.parseDouble(current.getText()));
+        }
+        if (match(TokenType.WORD)) {
+            return new ConstantExpression(current.getText());
         }
         if (match(TokenType.LPAREN)) {
             Expression result = expression();

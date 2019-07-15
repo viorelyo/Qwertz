@@ -29,6 +29,8 @@ public class Lexer {
             final char current = peek(0);
             if (Character.isDigit(current))
                 tokenizeNumber();
+            else if (Character.isLetter(current))
+                tokenizeWord();
             else if (OPERATOR_CHARS.indexOf(current) != -1) {
                 tokenizeOperator();
             }
@@ -38,6 +40,20 @@ public class Lexer {
             }
         }
         return tokens;
+    }
+
+    private void tokenizeWord() {
+        final StringBuilder buffer = new StringBuilder();
+
+        char current = peek(0);
+        while (true) {
+            if (!Character.isLetterOrDigit(current) && (current != '_' && (current != '$'))) {
+                break;
+            }
+            buffer.append(current);
+            current = next();
+        }
+        addToken(TokenType.WORD, buffer.toString());
     }
 
     private void tokenizeNumber() {

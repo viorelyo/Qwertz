@@ -9,11 +9,11 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        final String input = "(-2.3 + 2) * 2";
+        final String input = "(YOLO + 2)";
         final List<Token> tokenList = new Lexer(input).tokenize();
-//        for (Token token : tokenList) {
-//            System.out.println(token);
-//        }
+        for (Token token : tokenList) {
+            System.out.println(token);
+        }
 
         List<Expression> expressions = new Parser(tokenList).parse();
         for (Expression expr : expressions) {
