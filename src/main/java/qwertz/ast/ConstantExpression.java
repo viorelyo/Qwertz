@@ -1,6 +1,6 @@
 package qwertz.ast;
 
-import qwertz.lib.Constants;
+import qwertz.lib.Variables;
 
 public class ConstantExpression implements Expression {
     private final String name;
@@ -11,13 +11,13 @@ public class ConstantExpression implements Expression {
 
     @Override
     public double eval() {
-        if (!Constants.exists(name))
+        if (!Variables.exists(name))
             throw new RuntimeException("Constant doesn't exist");
-        return Constants.get(name);
+        return Variables.get(name);
     }
 
     @Override
     public String toString() {
-        return String.format("%s", name, Constants.get(name));
+        return String.format("%s", name, Variables.get(name));
     }
 }
