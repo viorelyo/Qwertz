@@ -54,7 +54,14 @@ public class Lexer {
             buffer.append(current);
             current = next();
         }
-        addToken(TokenType.WORD, buffer.toString());
+        //multilanguage support
+        if (buffer.toString().equals("print") || buffer.toString().equals("afiseaza") || buffer.toString().equals("drucke") || buffer.toString().equals("печать"))
+        {
+            addToken(TokenType.PRINT);
+        }
+        else {
+            addToken(TokenType.WORD, buffer.toString());
+        }
     }
 
     private void tokenizeNumber() {

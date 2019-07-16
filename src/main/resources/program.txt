@@ -1,0 +1,2 @@
+word = YOLO + 2
+print word
