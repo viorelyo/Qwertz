@@ -95,10 +95,13 @@ public class Parser {
     private Expression primary() {
         final Token current = get(0);
         if (match(TokenType.NUMBER)) {
-            return new NumberExpression(Double.parseDouble(current.getText()));
+            return new ValueExpression(Double.parseDouble(current.getText()));
         }
         if (match(TokenType.WORD)) {
-            return new ConstantExpression(current.getText());
+            return new VariableExpression(current.getText());
+        }
+        if (match(TokenType.TEXT)) {
+            return new ValueExpression(current.getText());
         }
         if (match(TokenType.LPAREN)) {
             Expression result = expression();

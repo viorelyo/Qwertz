@@ -9,7 +9,7 @@ public class PrintStatement implements Statement {
 
     @Override
     public void execute() {
-        System.out.println(expression.eval());
+        System.out.print(expression.eval());
     }
 
     @Override

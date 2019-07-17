@@ -1,5 +1,7 @@
 package qwertz.ast;
 
+import qwertz.lib.Value;
+
 public interface Expression {
-    double eval();
+    Value eval();
 }

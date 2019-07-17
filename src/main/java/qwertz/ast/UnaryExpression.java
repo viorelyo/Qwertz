@@ -1,5 +1,8 @@
 package qwertz.ast;
 
+import qwertz.lib.NumberValue;
+import qwertz.lib.Value;
+
 public class UnaryExpression implements Expression {
     private final Expression expr;
     private final char operation;
@@ -10,13 +13,13 @@ public class UnaryExpression implements Expression {
     }
 
     @Override
-    public double eval() {
+    public Value eval() {
         switch (operation)
         {
             case '+':
-                return expr.eval();
+                return new NumberValue(expr.eval().asDouble());
             case '-':
-                return -expr.eval();
+                return new NumberValue(-expr.eval().asDouble());
             default:
                 return expr.eval();
         }

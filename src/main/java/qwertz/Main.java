@@ -15,18 +15,21 @@ public class Main {
     public static void main(String[] args) throws IOException {
         // read from file
 //        final String input = new String(Files.readAllBytes(Paths.get("program.txt")), "UTF-8");
-        final String input = "sex = 5.5 * 2 - 1 + YOLO\n" +
-                             "печать sex";
+        final String input = "yo = 5.5 * 2 - 1 + YOLO\n" +
+                             "word = \"yay \" + \"nice\" \n" +
+                             "печать \"yo\" \n" +
+                             "print \"\n\" \n" +
+                             "print word";
 
         final List<Token> tokenList = new Lexer(input).tokenize();
 //        for (Token token : tokenList) {
 //            System.out.println(token);
 //        }
-
-        List<Statement> statements = new Parser(tokenList).parse();
-        for (Statement st : statements) {
-            System.out.println(st);
-        }
+//
+       List<Statement> statements = new Parser(tokenList).parse();
+//        for (Statement st : statements) {
+//            System.out.println(st);
+//        }
         for (Statement st : statements) {
             st.execute();
         }

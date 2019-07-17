@@ -1,5 +1,9 @@
 package qwertz.ast;
 
+import qwertz.lib.NumberValue;
+import qwertz.lib.StringValue;
+import qwertz.lib.Value;
+
 public class BinaryExpression implements Expression {
     private final Expression expr1, expr2;
     private final char operation;
@@ -11,19 +15,45 @@ public class BinaryExpression implements Expression {
     }
 
     @Override
-    public double eval() {
+    public Value eval() {
+        final Value value1 = expr1.eval();
+        final Value value2 = expr2.eval();
+
+        // compute string binary operations (concatenation)
+        if (value1 instanceof StringValue) {
+            final String string1 = value1.asString();
+            switch (operation)
+            {
+                case '*':
+                    final int iterations = (int) value2.asDouble();
+                    final StringBuilder buffer = new StringBuilder();
+                    for (int i = 0; i < iterations; i++)
+                    {
+                        buffer.append(string1);
+                    }
+                    return new StringValue(buffer.toString());
+                case '+':
+                default:
+                    return new StringValue(string1 + value2.asString());
+            }
+        }
+
+        // compute double binary operations
+        final double number1 = value1.asDouble();
+        final double number2 = value2.asDouble();
+
         switch (operation)
         {
             case '+':
-                return expr1.eval() + expr2.eval();
+                return new NumberValue(number1 + number2);
             case '-':
-                return expr1.eval() - expr2.eval();
+                return new NumberValue(number1 - number2);
             case '*':
-                return expr1.eval() * expr2.eval();
+                return new NumberValue(number1 * number2);
             case '/':
-                return expr1.eval() / expr2.eval();
+                return new NumberValue(number1 / number2);
             default:
-                return expr1.eval() + expr2.eval();
+                return new NumberValue(number1 + number2);
         }
     }
 

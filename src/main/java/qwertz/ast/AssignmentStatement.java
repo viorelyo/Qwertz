@@ -1,5 +1,6 @@
 package qwertz.ast;
 
+import qwertz.lib.Value;
 import qwertz.lib.Variables;
 
 public class AssignmentStatement implements Statement {
@@ -13,7 +14,7 @@ public class AssignmentStatement implements Statement {
 
     @Override
     public void execute() {
-        final double result = expression.eval();
+        final Value result = expression.eval();
         Variables.set(variable, result);
     }
 
