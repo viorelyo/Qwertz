@@ -2,6 +2,7 @@ package qwertz.parser;
 
 import qwertz.ast.*;
 
+import javax.swing.plaf.nimbus.State;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,6 +31,9 @@ public class Parser {
         if (match(TokenType.PRINT)) {
             return new PrintStatement(expression());
         }
+        if (match(TokenType.IF)) {
+            return ifElse();
+        }
         return assignmentStatement();
     }
 
@@ -41,6 +45,21 @@ public class Parser {
             return new AssignmentStatement(variable, expression());
         }
         throw new RuntimeException("Unknown statement");
+    }
+
+    private Statement ifElse() {
+        final Expression condition = expression();
+        final Statement ifStatement = statement();
+        final Statement elseStatement;
+
+        if (match(TokenType.ELSE)) {
+            elseStatement = statement();
+        }
+        else {
+            elseStatement = null;
+        }
+        return new IfStatement(condition, ifStatement, elseStatement);
+
     }
 
     private Expression expression() {

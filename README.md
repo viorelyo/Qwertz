@@ -8,6 +8,7 @@
 * Print keyword 
 * Strings, strings operations : `+*` (concat)
 * Conditional operators : `<>=`
+* Branching : `if`, `else`
 
 
 ## Features
