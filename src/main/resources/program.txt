@@ -1,2 +1,4 @@
-word = YOLO + 2
+yo = 5.5 * 2 - 1 + YOLO
+word = "yay " + "nice"
 print word
+drucke yo
