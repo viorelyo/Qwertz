@@ -7,9 +7,9 @@
 * Assignment operator, variables
 * Print keyword 
 * Strings, strings operations : `+*` (concat)
-* 
+* Conditional operators : `<>=`
 
 
 ## Features
-* Multilanguage support `RO` \ `EN` \ `DE` \ `RU`
+* Multilanguage support for keywords `RO` \ `EN` \ `DE` \ `RU`
 * Code written in separate file

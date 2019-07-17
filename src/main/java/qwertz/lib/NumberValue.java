@@ -7,6 +7,10 @@ public class NumberValue implements Value {
         this.value = value;
     }
 
+    public NumberValue(boolean value) {
+        this.value = value ? 1 : 0;
+    }
+
     @Override
     public double asDouble() {
         return value;

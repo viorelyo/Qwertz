@@ -44,7 +44,28 @@ public class Parser {
     }
 
     private Expression expression() {
-        return additive();
+        return conditional();
+    }
+
+    private Expression conditional() {
+        Expression result = additive();
+
+        while (true) {
+            if (match(TokenType.EQ)) {
+                result =  new ConditionalExpression('=', result, additive());
+                continue;
+            }
+            if (match(TokenType.LT)) {
+                result =  new ConditionalExpression('<', result, additive());
+                continue;
+            }
+            if (match(TokenType.GT)) {
+                result =  new ConditionalExpression('>', result, additive());
+                continue;
+            }
+            break;
+        }
+        return result;
     }
 
     private Expression additive() {

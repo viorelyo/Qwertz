@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Lexer {
-    private static final String OPERATOR_CHARS = "+-*/()=";
+    private static final String OPERATOR_CHARS = "+-*/()=<>";
     private static final TokenType[] OPERATOR_TOKENS = {
         TokenType.PLUS, TokenType.MINUS,
         TokenType.STAR, TokenType.SLASH,
         TokenType.LPAREN, TokenType.RPAREN,
-        TokenType.EQ
+        TokenType.EQ, TokenType.LT, TokenType.GT
     };
 
     private final String input;
@@ -83,6 +83,9 @@ public class Lexer {
         addToken(TokenType.TEXT, buffer.toString());
     }
 
+    /**
+     * Multilanguage support for keywords
+     */
     private void tokenizeWord() {
         final StringBuilder buffer = new StringBuilder();
 
@@ -94,10 +97,17 @@ public class Lexer {
             buffer.append(current);
             current = next();
         }
-        //multilanguage support
-        if (buffer.toString().equals("print") || buffer.toString().equals("afiseaza") || buffer.toString().equals("drucke") || buffer.toString().equals("печать"))
+
+        final String word = buffer.toString();
+        if (word.equals("print") || word.equals("afișează") || word.equals("drücke") || word.equals("печать"))
         {
             addToken(TokenType.PRINT);
+        }
+        else if (word.equals("if") || word.equals("dacă") || word.equals("falls") || word.equals("если")) {
+            addToken(TokenType.IF);
+        }
+        else if (word.equals("else") || word.equals("altfel") || word.equals("sonst") || word.equals("иначе")) {
+            addToken(TokenType.ELSE);
         }
         else {
             addToken(TokenType.WORD, buffer.toString());
