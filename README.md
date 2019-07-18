@@ -7,9 +7,10 @@
 * Assignment operator, variables
 * Print keyword 
 * Strings, strings operations : `+*` (concat)
-* Conditional operators : `<>=`
+* Conditional operators : `< <= > >= == !=`
 * Branching : `if`, `else`
 * Comments : singleline `//` , multiline `/* */` 
+* Boolean operators : `&& ||`
 
 
 ## Features
@@ -20,11 +21,24 @@
 ## Demo
 Code Example:
 ```
-    yo = 5.5 * 2 - 1 + YOLO
+    /* Example 
+        of 
+        multiline
+        comment
+    */
+
+    // So work strings
     word = "yay " + "nice"
-    drücke "\n"
-    dacă 100 = 100
-        print "yeay"
+    drücke word + "\n"
+
+    // So work numbers
+    yo = 5.5 * 2 - 1 + YOLO
+    print yo
+    print "\n"
+
+    // So work conditionals
+    if (40 < 50) && (50 != 60)
+        печать "true"
     altfel
-    print "nope"
+        afișează "false"
 ```

@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Lexer {
-    private static final String OPERATOR_CHARS = "+-*/()=<>";
+    private static final String OPERATOR_CHARS = "+-*/()=<>!&|";
 
     private static final Map<String, TokenType> OPERATORS;
     static {

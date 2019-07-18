@@ -1,9 +1,20 @@
-yo = 5.5 * 2 - 1 + YOLO
+/* Example
+    of
+    multiline
+    comment
+*/
 
+// So work strings
 word = "yay " + "nice"
-drücke "\n"
-dacă 100 = 100
-    print "yeay\n"
-altfel
-    print "nope"
+drücke word + "\n"
+
+// So work numbers
+yo = 5.5 * 2 - 1 + YOLO
 print yo
+print "\n"
+
+// So work conditionals
+if (40 < 50) && (50 != 60)
+    печать "true"
+altfel
+    afișează "false"
