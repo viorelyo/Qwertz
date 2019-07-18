@@ -1,4 +1,5 @@
-/* Example
+/*
+    Example
     of
     multiline
     comment

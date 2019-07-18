@@ -20,7 +20,7 @@
 
 ## Demo
 Code Example:
-```
+```scala
     /* Example 
         of 
         multiline
