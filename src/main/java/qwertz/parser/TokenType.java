@@ -17,8 +17,19 @@ public enum  TokenType {
     STAR,
     SLASH,
     EQ,
+    EQEQ,   // ==
     LT,     // <
     GT,     // >
+    LTEQ,
+    GTEQ,
+    EXCL,   // !
+    EXCLEQ, // !=
+
+    //bitwise operators
+    BAR,        // |  (bitwise or)
+    BARBAR,     // || (or)
+    AMP,        // &  (bitwise and)
+    AMPAMP,     // && (and)
 
     //symbols
     LPAREN,     // (

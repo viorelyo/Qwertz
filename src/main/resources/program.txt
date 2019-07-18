@@ -1,7 +1,9 @@
 yo = 5.5 * 2 - 1 + YOLO
-word = "yay " + "nice"
-print word
-drücke "\n"
 
-if 1 = 1
-    print "1 = 1"
+word = "yay " + "nice"
+drücke "\n"
+dacă 100 = 100
+    print "yeay\n"
+altfel
+    print "nope"
+print yo
