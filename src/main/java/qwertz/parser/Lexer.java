@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Lexer {
-    private static final String OPERATOR_CHARS = "+-*/()=<>!&|";
+    private static final String OPERATOR_CHARS = "+-*/(){}=<>!&|:";
 
     private static final Map<String, TokenType> OPERATORS;
     static {
@@ -17,9 +17,12 @@ public class Lexer {
         OPERATORS.put("/", TokenType.SLASH);
         OPERATORS.put("(", TokenType.LPAREN);
         OPERATORS.put(")", TokenType.RPAREN);
+        OPERATORS.put("{", TokenType.LBRACE);
+        OPERATORS.put("}", TokenType.RBRACE);
         OPERATORS.put("=", TokenType.EQ);
         OPERATORS.put("<", TokenType.LT);
         OPERATORS.put(">", TokenType.GT);
+        OPERATORS.put(":", TokenType.COLON);
 
         OPERATORS.put("!", TokenType.EXCL);
         OPERATORS.put("&", TokenType.AMP);
@@ -130,6 +133,12 @@ public class Lexer {
         }
         else if (word.equals("else") || word.equals("altfel") || word.equals("sonst") || word.equals("иначе")) {
             addToken(TokenType.ELSE);
+        }
+        else if (word.equals("while") || word.equals("câtTimp") || word.equals("während") || word.equals("пока")) {
+            addToken(TokenType.WHILE);
+        }
+        else if (word.equals("for") || word.equals("pentru") || word.equals("für") || word.equals("для")) {
+            addToken(TokenType.FOR);
         }
         else {
             addToken(TokenType.WORD, buffer.toString());

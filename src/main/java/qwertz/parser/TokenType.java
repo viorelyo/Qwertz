@@ -10,6 +10,8 @@ public enum  TokenType {
     PRINT,
     IF,
     ELSE,
+    WHILE,
+    FOR,
 
     //operators
     PLUS,
@@ -34,6 +36,9 @@ public enum  TokenType {
     //symbols
     LPAREN,     // (
     RPAREN,     // )
+    LBRACE,     // {
+    RBRACE,     // }
+    COLON,      // :
 
     EOF
 }

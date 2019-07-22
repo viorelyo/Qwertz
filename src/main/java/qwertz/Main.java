@@ -22,13 +22,8 @@ public class Main {
 //            System.out.println(token);
 //        }
 //
-       List<Statement> statements = new Parser(tokenList).parse();
-//        for (Statement st : statements) {
-//            System.out.println(st);
-//        }
-        for (Statement st : statements) {
-            st.execute();
-        }
-
+       final Statement program = new Parser(tokenList).parse();
+       System.out.println(program.toString());
+       program.execute();
     }
 }

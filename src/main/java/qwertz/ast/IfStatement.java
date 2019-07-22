@@ -25,7 +25,10 @@ public class IfStatement implements Statement {
     @Override
     public String toString() {
         final StringBuilder result = new StringBuilder();
-        result.append("if ").append(expression).append(' ').append(ifStatement.toString());
+        result.append("if ")
+                .append(expression)
+                .append(' ')
+                .append(ifStatement.toString());
         if (elseStatement != null) {
             result.append("\nelse ").append(elseStatement);
         }

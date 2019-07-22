@@ -6,21 +6,31 @@ import qwertz.lib.Value;
 
 public class ConditionalExpression implements Expression {
     public static enum Operator {
-        PLUS,
-        MINUS,
-        MULTIPLY,
-        DIVIDE,
+        PLUS("+"),
+        MINUS("-"),
+        MULTIPLY("*"),
+        DIVIDE("/"),
 
-        EQUALS,
-        NOT_EQUALS,
+        EQUALS("=="),
+        NOT_EQUALS("!="),
 
-        LT,
-        LTEQ,
-        GT,
-        GTEQ,
+        LT("<"),
+        LTEQ("<="),
+        GT(">"),
+        GTEQ(">="),
 
-        AND,
-        OR
+        AND("&&"),
+        OR("||");
+
+        private final String name;
+
+        private Operator(String name) {
+            this.name = name;
+        }
+
+        public String getName() {
+            return name;
+        }
     }
 
     private final Expression expr1, expr2;
@@ -80,6 +90,6 @@ public class ConditionalExpression implements Expression {
 
     @Override
     public String toString() {
-        return String.format("[%s %c %s]", expr1, operation.name(), expr2);
+        return String.format("[%s %s %s]", expr1, operation.getName(), expr2);
     }
 }
