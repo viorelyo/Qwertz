@@ -50,11 +50,21 @@ public class Parser {
         if (match(TokenType.WHILE)) {
             return whileStatement();
         }
+        if (match(TokenType.DO)) {
+            return doWhileStatement();
+        }
         if (match(TokenType.FOR)) {
             return forStatement();
         }
+        if (match(TokenType.BREAK)) {
+            return new BreakStatement();
+        }
+        if (match(TokenType.CONTINUE)) {
+            return new ContinueStatement();
+        }
         return assignmentStatement();
     }
+
 
     private Statement assignmentStatement() {
         final Token current = get(0);
@@ -84,6 +94,13 @@ public class Parser {
         final Expression condition = expression();
         final Statement statement = statementOrBlock();
         return new WhileStatement(condition, statement);
+    }
+
+    private Statement doWhileStatement() {
+        final Statement statement = statementOrBlock();
+        consume(TokenType.WHILE);
+        final Expression condition = expression();
+        return new DoWhileStatement(condition, statement);
     }
 
     private Statement forStatement() {

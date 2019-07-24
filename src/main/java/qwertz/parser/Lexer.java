@@ -140,6 +140,15 @@ public class Lexer {
         else if (word.equals("for") || word.equals("pentru") || word.equals("für") || word.equals("для")) {
             addToken(TokenType.FOR);
         }
+        else if (word.equals("do") || word.equals("execută") || word.equals("tue") || word.equals("делай")) {
+            addToken(TokenType.DO);
+        }
+        else if (word.equals("break") || word.equals("oprește") || word.equals("brechen") || word.equals("стопэ")) {
+            addToken(TokenType.BREAK);
+        }
+        else if (word.equals("continue") || word.equals("continuă") || word.equals("fortsetzen") || word.equals("Продолжить")) {
+            addToken(TokenType.CONTINUE);
+        }
         else {
             addToken(TokenType.WORD, buffer.toString());
         }

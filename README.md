@@ -12,13 +12,11 @@
 * Comments : singleline `//` , multiline `/* */` 
 * Boolean operators : `&& ||`
 * Block statements 
-* `for` \ `while` loop
-
+* `for` \ `while` \ `do-while` loops
+* Loop control : `continue` & `break`
 
 ## Features
 * Multilanguage support for keywords `RO` \ `EN` \ `DE` \ `RU`
-* Code written in separate file
-
 
 ## Demo
 Code Example:
@@ -51,9 +49,18 @@ Code Example:
         while (i < 10) {
             print "i = " + i + "\n"
             i = i + 1
+            if i == 4
+                continue
         }
         for (i = 0 : i < 10 : i = i + 2) {
             print "i = " + i + "\n"
+            if i == 4
+                continue
         }
+
+        do {
+            print "i = " + i + "\n"
+            i = i - 1
+        } while (i >= 0)
     }
 ```
