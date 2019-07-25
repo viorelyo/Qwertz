@@ -1,6 +1,7 @@
 package qwertz.lib;
 
 public class NumberValue implements Value {
+    public static final NumberValue ZERO = new NumberValue(0);
     private final double value;
 
     public NumberValue(double value) {

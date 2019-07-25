@@ -147,8 +147,14 @@ public class Lexer {
         else if (word.equals("break") || word.equals("oprește") || word.equals("brechen") || word.equals("стопэ")) {
             addToken(TokenType.BREAK);
         }
-        else if (word.equals("continue") || word.equals("continuă") || word.equals("fortsetzen") || word.equals("Продолжить")) {
+        else if (word.equals("continue") || word.equals("continuă") || word.equals("fortsetzen") || word.equals("продолжить")) {
             addToken(TokenType.CONTINUE);
+        }
+        else if (word.equals("fun")) {
+            addToken(TokenType.FUN);
+        }
+        else if (word.equals("return") || word.equals("returnează") || word.equals("zurückgeben") || word.equals("вернуть")) {
+            addToken(TokenType.RETURN);
         }
         else {
             addToken(TokenType.WORD, buffer.toString());

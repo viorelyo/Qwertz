@@ -15,6 +15,8 @@ public enum  TokenType {
     DO,
     BREAK,
     CONTINUE,
+    FUN,
+    RETURN,
 
     //operators
     PLUS,

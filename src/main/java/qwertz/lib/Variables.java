@@ -2,16 +2,26 @@ package qwertz.lib;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Stack;
 
 public class Variables {
-    private static final NumberValue ZERO = new NumberValue(0);
-    private static final Map<String, Value> variables;
+    private static Map<String, Value> variables;
+    private static final Stack<Map<String, Value>> stack;
 
     static {
+        stack = new Stack<>();
         variables = new HashMap<>();
         variables.put("PI", new NumberValue(Math.PI));
         variables.put("E", new NumberValue(Math.E));
         variables.put("YOLO", new NumberValue(42.0));
+    }
+
+    public static void push() {
+        stack.push(new HashMap<>(variables));
+    }
+
+    public static void pop() {
+        variables = stack.pop();
     }
 
     public static boolean exists(String key) {
@@ -20,7 +30,7 @@ public class Variables {
 
     public static Value get(String key) {
         if (!exists(key))
-            return ZERO;
+            return NumberValue.ZERO;
         return variables.get(key);
     }
 

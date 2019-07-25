@@ -1,7 +1,6 @@
 package qwertz.ast;
 
-import qwertz.lib.Functions;
-import qwertz.lib.Value;
+import qwertz.lib.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +31,23 @@ public class FunctionalExpression implements Expression {
         for (int i = 0; i < size; i++) {
             values[i] = (arguments.get(i).eval());
         }
-        return Functions.get(name).execute(values);
+
+        final Function function = Functions.get(name);
+        if (function instanceof UserDefinedFunction) {
+            final UserDefinedFunction userDefinedFunction = (UserDefinedFunction) function;
+            if (size != userDefinedFunction.getArgsCount())
+                throw new RuntimeException("Args count mismatch");
+
+            Variables.push();
+            for (int i = 0; i < size; i++) {
+                Variables.set(userDefinedFunction.getArgsName(i), values[i]);
+            }
+            final Value result = userDefinedFunction.execute(values);
+            Variables.pop();
+            return result;
+        }
+
+        return function.execute(values);
     }
 
 
