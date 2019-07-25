@@ -6,26 +6,26 @@ Qwertz is an ~~esoteric~~ programming language with multilanguage support.
 * Basic operations : `+-*/()`
 * Constants 
 * Assignment operator, variables
-* Print keyword 
+* Print keyword  
     **_Demo_**
     ```scala
         integerVar = 4 + 6 + YOLO
         print integerVar
     ```
-    > 52.0
-    
-* Strings, strings operations : `+*` (concat)
+    > 52.0  
+      
+* Strings, strings operations : `+*` (concat)  
     **_Demo_**
     ```scala
         stringVar = "yo" *3
         afișează stringVar
     ```
-    > yoyoyo
-
+    > yoyoyo  
+  
 * Conditional operators : `< <= > >= == !=`
 * Block statements 
 * Boolean operators : `&& ||`
-* Branching : `if`, `else`
+* Branching : `if`, `else`  
     **_Demo_**
     ```scala
         qwertz = 42.99
@@ -37,11 +37,11 @@ Qwertz is an ~~esoteric~~ programming language with multilanguage support.
         иначе
             drücke "meh\n" 
     ```
-    > yay! QWERTZ is amazing
-
+    > yay! QWERTZ is amazing  
+  
 * Comments : singleline `//` , multiline `/* */` 
 * Loop control : `continue` & `break`
-* `for` \ `while` \ `do-while` loops
+* `for` \ `while` \ `do-while` loops  
     **_Demo_**
     ```scala
         for (i = 0 : i < 10 : i = i + 2) {
@@ -51,16 +51,16 @@ Qwertz is an ~~esoteric~~ programming language with multilanguage support.
             print ", "
         }
     ```
-    > i = 0.0, i = 2.0, i = 4.0
-
-* System functions : `sin`, `cos`, `fancyPrint` ... 
+    > i = 0.0, i = 2.0, i = 4.0  
+  
+* System functions : `sin`, `cos`, `fancyPrint` ...  
     **_Demo_**
     ```scala
         fancyPrint(1, " ", 2, " ", 3, " ", 4, " ", 5, " ", YOLO)
     ```
-    > 1.0 2.0 3.0 4.0 5.0 42.0
-
-
+    > 1.0 2.0 3.0 4.0 5.0 42.0  
+  
+  
 ## Features
 * Multilanguage support for keywords `RO` \ `EN` \ `DE` \ `RU`
 > Pardon some of my keywords :)
