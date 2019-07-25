@@ -21,7 +21,7 @@ public class Functions {
         });
         functions.put("fancyPrint", args -> {
             for (Value arg : args) {
-                System.out.print(arg.asString());
+                System.out.print(arg.asString() + " ");
             }
             return ZERO;
         });

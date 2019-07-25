@@ -17,7 +17,7 @@ Qwertz is an ~~esoteric~~ programming language with multilanguage support.
 * Strings, strings operations : `+*` (concat)  
     
     ```scala
-        stringVar = "yo" *3
+        stringVar = "yo" * 3
         afișează stringVar
     ```
     > yoyoyo  
@@ -56,7 +56,7 @@ Qwertz is an ~~esoteric~~ programming language with multilanguage support.
 * System functions : `sin`, `cos`, `fancyPrint` ...  
 
     ```scala
-        fancyPrint(1, " ", 2, " ", 3, " ", 4, " ", 5, " ", YOLO)
+        fancyPrint(1, 2, 3, 4, 5, YOLO)
     ```
     > 1.0 2.0 3.0 4.0 5.0 42.0  
 
