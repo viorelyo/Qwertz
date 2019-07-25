@@ -1,4 +1,5 @@
 # Qwertz
+Qwertz is an ~~esoteric~~ programming language with multilanguage support.
 
 ## Already Implemented
 * Integers, Floats 
