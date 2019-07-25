@@ -52,8 +52,8 @@ public class ConditionalExpression implements Expression {
             number1 = value1.asString().compareTo(value2.asString());
             number2 = 0;
         } else {
-            number1 = value1.asDouble();
-            number2 = value2.asDouble();
+            number1 = value1.asNumber();
+            number2 = value2.asNumber();
         }
 
         // compute conditional operations

@@ -1,6 +1,6 @@
 package qwertz.lib;
 
 public interface Value {
-    double asDouble();
+    double asNumber();
     String asString();
 }

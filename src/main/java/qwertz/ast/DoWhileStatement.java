@@ -22,7 +22,7 @@ public class DoWhileStatement implements Statement {
                 // continue;
             }
         }
-        while (condition.eval().asDouble() != 0);
+        while (condition.eval().asNumber() != 0);
 
     }
 

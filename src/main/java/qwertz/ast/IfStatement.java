@@ -13,7 +13,7 @@ public class IfStatement implements Statement {
 
     @Override
     public void execute() {
-        final double result = expression.eval().asDouble();
+        final double result = expression.eval().asNumber();
         if (result != 0) {
             ifStatement.execute();
         }

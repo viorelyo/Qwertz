@@ -17,9 +17,9 @@ public class UnaryExpression implements Expression {
         switch (operation)
         {
             case '+':
-                return new NumberValue(expr.eval().asDouble());
+                return new NumberValue(expr.eval().asNumber());
             case '-':
-                return new NumberValue(-expr.eval().asDouble());
+                return new NumberValue(-expr.eval().asNumber());
             default:
                 return expr.eval();
         }

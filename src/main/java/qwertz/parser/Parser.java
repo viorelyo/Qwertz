@@ -62,6 +62,9 @@ public class Parser {
         if (match(TokenType.CONTINUE)) {
             return new ContinueStatement();
         }
+        if (get(0).getType() == TokenType.WORD && get(1).getType() == TokenType.LPAREN) {
+            return new FunctionStatement(function());
+        }
         return assignmentStatement();
     }
 
@@ -113,6 +116,17 @@ public class Parser {
         consume(TokenType.RPAREN);
         final Statement statement = statementOrBlock();
         return new ForStatement(initialization, termination, increment, statement);
+    }
+
+    private FunctionalExpression function() {
+        final String name = consume(TokenType.WORD).getText();
+        consume(TokenType.LPAREN);
+        final FunctionalExpression function = new FunctionalExpression(name);
+        while (!match(TokenType.RPAREN)) {
+            function.addArgument(expression());
+            match(TokenType.COMMA);
+        }
+        return function;
     }
 
     private Expression expression() {
@@ -235,6 +249,10 @@ public class Parser {
         if (match(TokenType.NUMBER)) {
             return new ValueExpression(Double.parseDouble(current.getText()));
         }
+        if (get(0).getType() == TokenType.WORD && get(1).getType() == TokenType.LPAREN)
+        {
+            return function();
+        }
         if (match(TokenType.WORD)) {
             return new VariableExpression(current.getText());
         }
@@ -248,6 +266,7 @@ public class Parser {
         }
         throw new RuntimeException("Unknown expression");
     }
+
 
     private Token consume(TokenType type) {
         final Token current = get(0);

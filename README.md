@@ -6,19 +6,66 @@
 * Constants 
 * Assignment operator, variables
 * Print keyword 
+    **_Demo_**
+    ```scala
+        integerVar = 4 + 6 + YOLO
+        print integerVar
+    ```
+    > 52.0
+    
 * Strings, strings operations : `+*` (concat)
+    **_Demo_**
+    ```scala
+        stringVar = "yo" *3
+        afișează stringVar
+    ```
+    > yoyoyo
+
 * Conditional operators : `< <= > >= == !=`
-* Branching : `if`, `else`
-* Comments : singleline `//` , multiline `/* */` 
-* Boolean operators : `&& ||`
 * Block statements 
-* `for` \ `while` \ `do-while` loops
+* Boolean operators : `&& ||`
+* Branching : `if`, `else`
+    **_Demo_**
+    ```scala
+        qwertz = 42.99
+        falls (qwertz > 42) 
+        {
+            print "yay!"
+            print " QWERTZ is amazing\n"
+        }
+        иначе
+            drücke "meh\n" 
+    ```
+    > yay! QWERTZ is amazing
+
+* Comments : singleline `//` , multiline `/* */` 
 * Loop control : `continue` & `break`
+* `for` \ `while` \ `do-while` loops
+    **_Demo_**
+    ```scala
+        for (i = 0 : i < 10 : i = i + 2) {
+            print "i = " + i
+            if i == 4
+                стопэ
+            print ", "
+        }
+    ```
+    > i = 0.0, i = 2.0, i = 4.0
+
+* System functions : `sin`, `cos`, `fancyPrint` ... 
+    **_Demo_**
+    ```scala
+        fancyPrint(1, " ", 2, " ", 3, " ", 4, " ", 5, " ", YOLO)
+    ```
+    > 1.0 2.0 3.0 4.0 5.0 42.0
+
 
 ## Features
 * Multilanguage support for keywords `RO` \ `EN` \ `DE` \ `RU`
+> Pardon some of my keywords :)
 
-## Demo
+
+## Program Demo
 Code Example:
 ```scala
     /*
@@ -50,7 +97,7 @@ Code Example:
             print "i = " + i + "\n"
             i = i + 1
             if i == 4
-                continue
+                oprește
         }
         for (i = 0 : i < 10 : i = i + 2) {
             print "i = " + i + "\n"
@@ -64,3 +111,10 @@ Code Example:
         } while (i >= 0)
     }
 ```
+
+## Built with
+* Java 8
+* Gradle Project
+* Intellij Idea
+
+## Try it

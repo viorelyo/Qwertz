@@ -25,7 +25,7 @@ public class BinaryExpression implements Expression {
             switch (operation)
             {
                 case '*':
-                    final int iterations = (int) value2.asDouble();
+                    final int iterations = (int) value2.asNumber();
                     final StringBuilder buffer = new StringBuilder();
                     for (int i = 0; i < iterations; i++)
                     {
@@ -39,8 +39,8 @@ public class BinaryExpression implements Expression {
         }
 
         // compute double binary operations
-        final double number1 = value1.asDouble();
-        final double number2 = value2.asDouble();
+        final double number1 = value1.asNumber();
+        final double number2 = value2.asNumber();
 
         switch (operation)
         {
