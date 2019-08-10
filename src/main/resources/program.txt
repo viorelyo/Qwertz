@@ -1,1 +1,6 @@
-fancyPrint(1, 2, 3, 4, 5, YOLO)
+arr = [1, "text", 1+1, [2 + 3]]
+print arr + "\n"
+arr[0] = arr[0] + 1000 + arr[1]
+
+if 1
+    print 2 != 2

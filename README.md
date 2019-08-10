@@ -14,7 +14,7 @@ Qwertz is an ~~esoteric~~ programming language with multilanguage support.
     ```
     > 52.0  
       
-* Strings, strings operations : `+*` (concat)  
+* Strings, strings operations : `=*` (concat)  
     
     ```scala
         stringVar = "yo" * 3
@@ -78,8 +78,9 @@ Qwertz is an ~~esoteric~~ programming language with multilanguage support.
   
 ## Features
 * Multilanguage support for keywords `RO` \ `EN` \ `DE` \ `RU`
-> Pardon some of my keywords :)
+> Pardon some of my keywords :)  
 
+* Visual Studio Code Extension for `Qwertz` : `qwertz.vscode-extension`  
 
 ## Program Demo
 Code Example:
@@ -133,4 +134,9 @@ Code Example:
 * Gradle Project
 * Intellij Idea
 
-## Try it
+## Visual Studio Code Support
+To install Qwertz extension for Visual Studio Code, copy the extension folder `qwertz.vscode-extension` to extension directory:  
+* on __Windows__: `%USERPROFILE%\.vscode\extensions`
+* on __MAC/Linux__: `$HOME/.vscode/extensions`
+
+## Enjoy it ^_^

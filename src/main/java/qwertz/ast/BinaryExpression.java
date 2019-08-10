@@ -1,5 +1,6 @@
 package qwertz.ast;
 
+import qwertz.lib.ArrayValue;
 import qwertz.lib.NumberValue;
 import qwertz.lib.StringValue;
 import qwertz.lib.Value;
@@ -20,7 +21,7 @@ public class BinaryExpression implements Expression {
         final Value value2 = expr2.eval();
 
         // compute string binary operations (concatenation)
-        if (value1 instanceof StringValue) {
+        if ((value1 instanceof StringValue) || (value1 instanceof ArrayValue)) {
             final String string1 = value1.asString();
             switch (operation)
             {

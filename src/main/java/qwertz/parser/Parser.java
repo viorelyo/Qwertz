@@ -78,11 +78,18 @@ public class Parser {
 
 
     private Statement assignmentStatement() {
-        final Token current = get(0);
-        if (match(TokenType.WORD) && get(0).getType() == TokenType.EQ) {
-            final String variable = current.getText();
+        if (lookMatch(0, TokenType.WORD) && lookMatch(1, TokenType.EQ)) {
+            final String variable = consume(TokenType.WORD).getText();
             consume(TokenType.EQ);
             return new AssignmentStatement(variable, expression());
+        }
+        if (lookMatch(0, TokenType.WORD) && lookMatch(1, TokenType.LBRACKET)) {
+            final String variable = consume(TokenType.WORD).getText();
+            consume(TokenType.LBRACKET);
+            final Expression index = expression();
+            consume(TokenType.RBRACKET);
+            consume(TokenType.EQ);
+            return new ArrayAssignmentStatement(variable, index, expression());
         }
         throw new RuntimeException("Unknown statement");
     }
@@ -148,6 +155,24 @@ public class Parser {
             match(TokenType.COMMA);
         }
         return function;
+    }
+
+    private Expression array() {
+        consume(TokenType.LBRACKET);
+        final List<Expression> elems = new ArrayList<>();
+        while (!match(TokenType.RBRACKET)) {
+            elems.add(expression());
+            match(TokenType.COMMA);
+        }
+        return new ArrayExpression(elems);
+    }
+
+    private Expression element() {
+        final String variable = consume(TokenType.WORD).getText();
+        consume(TokenType.LBRACKET);
+        final Expression index = expression();
+        consume(TokenType.RBRACKET);
+        return new ArrayAccessExpression(variable, index);
     }
 
     private Expression expression() {
@@ -274,6 +299,12 @@ public class Parser {
         {
             return function();
         }
+        if (lookMatch(0, TokenType.WORD) && lookMatch(1, TokenType.LBRACKET)) {
+            return element();
+        }
+        if (lookMatch(0, TokenType.LBRACKET)) {
+            return array();
+        }
         if (match(TokenType.WORD)) {
             return new VariableExpression(current.getText());
         }
@@ -287,7 +318,6 @@ public class Parser {
         }
         throw new RuntimeException("Unknown expression");
     }
-
 
     private Token consume(TokenType type) {
         final Token current = get(0);
@@ -305,6 +335,10 @@ public class Parser {
 
         pos++;
         return true;
+    }
+
+    private boolean lookMatch(int pos, TokenType type) {
+        return get(pos).getType() == type;
     }
 
     private Token get(int relativePosition) {

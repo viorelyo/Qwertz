@@ -25,6 +25,9 @@ public class Functions {
             }
             return ZERO;
         });
+        functions.put("array", args -> {
+            return new ArrayValue(args);
+        });
     }
 
     public static boolean exists(String key) {
