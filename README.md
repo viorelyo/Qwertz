@@ -85,12 +85,20 @@ Qwertz is an ~~esoteric~~ programming language with multilanguage support.
 ## Program Demo
 Code Example:
 ```scala
-    /*
+        /*
         Example
         of
         multiline
         comment
     */
+
+    arr = [1, "text", 1+1, [2 + 3]]
+    print arr + "\n"
+    arr[0] = arr[0] + 1000 + arr[1]
+
+    fun println(i) {
+        print "i = " + i + "\n"
+    }
 
     // So work strings
     word = "yay " + "nice"
@@ -102,7 +110,7 @@ Code Example:
     print "\n"
 
     // So work conditionals
-    if (40 > 50) && (50 != 60) {
+    if (40 > 50) || (50 != 60) {
         печать "true\n"
         print "true1\n"
     }
@@ -123,7 +131,7 @@ Code Example:
         }
 
         do {
-            print "i = " + i + "\n"
+            println(i)
             i = i - 1
         } while (i >= 0)
     }
@@ -135,6 +143,8 @@ Code Example:
 * Intellij Idea
 
 ## Visual Studio Code Support
+1. Syntax Highlight  
+  
 To install Qwertz extension for Visual Studio Code, copy the extension folder `qwertz.vscode-extension` to extension directory:  
 * on __Windows__: `%USERPROFILE%\.vscode\extensions`
 * on __MAC/Linux__: `$HOME/.vscode/extensions`
