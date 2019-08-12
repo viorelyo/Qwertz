@@ -150,8 +150,11 @@ To install Qwertz extension for Visual Studio Code, copy the extension folder `q
 * on __MAC/Linux__: `$HOME/.vscode/extensions`
 
 ## Install
+1. From `Utils` download `Jar`
+2. Add the path of `Jar` from your system to `Environment Variables`
+3. Voilà! 
 
 ## Usage
-
+Open `cmd` and type: qwertz nameOfYourScript.qwz
 
 ## Enjoy it ^_^

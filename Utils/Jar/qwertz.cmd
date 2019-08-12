@@ -1,3 +1,3 @@
 @echo off
 
-java -jar "qwertz.jar" %*
+java -jar "%~dp0\qwertz.jar" %*
