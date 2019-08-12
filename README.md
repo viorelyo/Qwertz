@@ -151,5 +151,7 @@ To install Qwertz extension for Visual Studio Code, copy the extension folder `q
 
 ## Install
 
+## Usage
+
 
 ## Enjoy it ^_^
