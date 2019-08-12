@@ -85,7 +85,7 @@ Qwertz is an ~~esoteric~~ programming language with multilanguage support.
 ## Program Demo
 Code Example:
 ```scala
-        /*
+    /*
         Example
         of
         multiline
